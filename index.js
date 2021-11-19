@@ -7,16 +7,19 @@
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 
-const url = "mongodb+srv://admin:1b7yo0CUPxyYfFEk@cluster0.749ln.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+//const url = "mongodb+srv://admin:1b7yo0CUPxyYfFEk@cluster0.749ln.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const url = "mongodb+srv://jorns001n:Data_Access@cluster0.taf6d.mongodb.net/ocean_nuvem_19_11_2021?retryWrites=true&w=majority";
+
 const dbName = "ocean_nuvem_19_11_2021";
 
 async function main() {
+    
     const client = await MongoClient.connect(url);
 
     const db = client.db(dbName);
 
     const collection = db.collection("herois");
-
+    
     const app = express();
 
     // Informando para o Express considerar o corpo da requisição
@@ -24,7 +27,7 @@ async function main() {
     app.use(express.json());
 
     app.get("/", function (req, res) {
-        res.send("Hello, World!");
+        res.send("Hello, World!!!");
     });
 
     app.get("/oi", function (req, res) {
